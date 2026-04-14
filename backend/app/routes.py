@@ -13,6 +13,7 @@ router = APIRouter()
 
 # TODO: Register route modules, e.g.:
 
+
 from app.routers import creatures
 # router.include_router(auth.router, prefix="/auth", tags=["auth"])
-router.include_router(creatures.router, prefix="/creatures", tags=["creatures"])
+router.include_router(creatures.router, tags=["creatures"])
