@@ -28,7 +28,7 @@ import {
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-import { fetchNearbyCreatures } from "../api/creatures";
+import { fetchNearbyCreatures, spawnCreatures } from "../api/creatures";
 
 // ---------------------------------------------------------------------------
 // Fix Leaflet's default icon paths when bundled by Create React App.
@@ -139,6 +139,7 @@ export default function MapView({ radiusKm = 0.5, onError }) {
     return () => clearInterval(fetchTimerRef.current);
   }, [loadCreatures]);
 
+
   // ------------------------------------------------------------------
   // TODO: Implement catch action
   // ------------------------------------------------------------------
@@ -147,6 +148,23 @@ export default function MapView({ radiusKm = 0.5, onError }) {
     // TODO: Check proximity (distance < 30 m) before allowing the catch.
     // TODO: Update creature list / show catch animation on success.
     alert(`Catch functionality coming soon! (${creature.name})`);
+  };
+
+  // ------------------------------------------------------------------
+  // Spawn creatures near the user (for debug/demo)
+  // ------------------------------------------------------------------
+  const [spawning, setSpawning] = useState(false);
+  const handleSpawn = async () => {
+    if (!userPos) return;
+    setSpawning(true);
+    try {
+      await spawnCreatures(userPos[0], userPos[1], 5, radiusKm);
+      await loadCreatures(); // обновить список существ
+    } catch (err) {
+      alert("Failed to spawn creatures: " + err.message);
+    } finally {
+      setSpawning(false);
+    }
   };
 
   // ------------------------------------------------------------------
@@ -179,6 +197,16 @@ export default function MapView({ radiusKm = 0.5, onError }) {
       {locationError && (
         <div style={styles.banner}>⚠️ {locationError}</div>
       )}
+
+      {/* Кнопка спауна покемонов */}
+      <button
+        style={styles.spawnButton}
+        onClick={handleSpawn}
+        disabled={!userPos || spawning}
+      >
+        {spawning ? "Spawning..." : "Spawn creatures here"}
+      </button>
+
       <MapContainer
         center={centre}
         zoom={15}
@@ -250,6 +278,27 @@ export default function MapView({ radiusKm = 0.5, onError }) {
 const styles = {
   container: { position: "relative", width: "100%", height: "100vh" },
   map: { width: "100%", height: "100%" },
+  spawnButton: {
+    position: "absolute",
+    top: 20,
+    left: "50%",
+    transform: "translateX(-50%)",
+    zIndex: 1100,
+    background: "#43a047",
+    color: "#fff",
+    border: "none",
+    borderRadius: 20,
+    padding: "10px 24px",
+    fontSize: "1rem",
+    fontWeight: "bold",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+    cursor: "pointer",
+    opacity: 1,
+    transition: "opacity 0.2s",
+    marginBottom: 8,
+    outline: "none",
+    pointerEvents: "auto",
+  },
   loading: {
     display: "flex",
     flexDirection: "column",
