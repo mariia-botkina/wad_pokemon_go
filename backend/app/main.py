@@ -23,3 +23,10 @@ app.include_router(router)
 async def health_check() -> dict:
     """Health-check endpoint – returns a simple status message."""
     return {"status": "ok"}
+
+
+# Новый endpoint для получения версии API
+@app.get("/version", tags=["info"])
+async def version() -> dict:
+    """Returns the current API version."""
+    return {"version": app.version}
