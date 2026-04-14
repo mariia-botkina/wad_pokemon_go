@@ -1,0 +1,125 @@
+.page {
+  position: relative;
+  height: calc(100vh - 52px); /* full height minus navbar */
+  display: flex;
+  flex-direction: column;
+}
+
+.map {
+  flex: 1;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Status bar at the bottom of the screen, above the map */
+.statusBar {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+}
+
+.statusMsg {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.statusError {
+  font-size: 0.875rem;
+  color: var(--color-danger);
+  font-weight: 500;
+}
+
+/* Creature emoji icon on the map */
+.creatureIcon {
+  font-size: 1.8rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.creatureIcon:hover {
+  transform: scale(1.2);
+}
+
+/* Catch dialog overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1500;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 0 1rem 0;
+}
+
+.dialog {
+  background: #fff;
+  border-radius: 20px 20px 0 0;
+  padding: 2rem 1.5rem 1.5rem;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.dialogEmoji {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+.dialogTitle {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.dialogDesc {
+  margin-top: 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.dialogPower {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.dialogActions {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.catchSuccess {
+  margin-top: 0.75rem;
+  color: var(--color-success);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.catchError {
+  margin-top: 0.75rem;
+  color: var(--color-danger);
+  font-size: 0.9rem;
+}
