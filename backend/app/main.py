@@ -14,7 +14,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .database import Base, engine
 from .routers import creatures
-from .utils.spawn import lifespan
+from .utils.spawn import spawn_lifespan
 
 # Create database tables (no-op if they already exist).
 Base.metadata.create_all(bind=engine)
@@ -23,7 +23,7 @@ app = FastAPI(
     title="Pokémon Go-like API",
     description="Backend API for the WAD Pokémon Go-like web application.",
     version="0.1.0",
-    lifespan=lifespan,
+    lifespan=spawn_lifespan,
 )
 
 # ---------------------------------------------------------------------------

@@ -186,11 +186,15 @@ class SpawnManager:
             del self._creatures[cid]
         return len(expired)
 
+    def is_empty(self) -> bool:
+        """Return True if there are no creatures in the pool."""
+        return len(self._creatures) == 0
+
     # ------------------------------------------------------------------
     # Background auto-spawn task
     # ------------------------------------------------------------------
 
-    async def _auto_spawn_loop(
+    async def auto_spawn_loop(
         self,
         interval_seconds: int = 30,
         batch_size: int = 3,
@@ -218,14 +222,17 @@ spawn_manager = SpawnManager()
 
 
 @asynccontextmanager
-async def lifespan(app):  # noqa: ARG001
-    """FastAPI lifespan context: starts background spawn task on startup.
+async def spawn_lifespan(app):  # noqa: ARG001
+    """FastAPI lifespan context: starts the background spawn task on startup.
+
+    Renamed from ``lifespan`` to avoid shadowing FastAPI's own ``lifespan``
+    parameter name and to make the purpose explicit.
 
     Usage::
 
-        app = FastAPI(lifespan=lifespan)
+        app = FastAPI(lifespan=spawn_lifespan)
     """
-    task = asyncio.create_task(spawn_manager._auto_spawn_loop())
+    task = asyncio.create_task(spawn_manager.auto_spawn_loop())
     try:
         yield
     finally:

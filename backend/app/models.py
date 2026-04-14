@@ -32,5 +32,5 @@ class Creature(Base):
     latitude = Column(Float, nullable=False)
     longitude = Column(Float, nullable=False)
     spawned_at = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc), nullable=False)
-    expires_at = Column(DateTime, nullable=True)
+    expires_at = Column(DateTime(timezone=True), nullable=True)
     is_caught = Column(Boolean, default=False, nullable=False)

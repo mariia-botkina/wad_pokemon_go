@@ -64,7 +64,7 @@ def get_nearby_creatures(
     spawn_manager.register_location(lat, lon)
 
     # Seed initial creatures if the pool is completely empty.
-    if not spawn_manager._creatures:
+    if spawn_manager.is_empty():
         spawn_manager.spawn_batch(lat, lon, count=5, radius_km=radius_km)
 
     return spawn_manager.get_active(lat, lon, radius_km)
