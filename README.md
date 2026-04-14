@@ -35,6 +35,15 @@ wad_pokemon_go/
 └── README.md
 ```
 
+## How To Run
+
+## Prerequisites
+
+- Python 3.11+
+- pip
+- Docker (optional, for container run)
+- Git
+
 ## Setup Instructions
 
 1. Clone the repository:
@@ -46,7 +55,7 @@ wad_pokemon_go/
 
 ### Backend (FastAPI)
 
-#### Run locally
+#### Run locally (recommended for development)
 
 ```bash
 cd backend
@@ -66,6 +75,18 @@ The API will be available at <http://localhost:8000>.
 Interactive docs (Swagger UI) are at <http://localhost:8000/docs>.  
 Health-check endpoint: `GET /health`
 
+Quick check from a terminal:
+
+```bash
+curl http://localhost:8000/health
+```
+
+Expected response:
+
+```json
+{"status":"ok"}
+```
+
 #### Run with Docker
 
 ```bash
@@ -79,6 +100,11 @@ docker run -p 8000:8000 pokemon-go-backend
 ```
 
 The API will again be available at <http://localhost:8000>.
+
+## Frontend Status
+
+The `frontend/` directory is currently a placeholder and does not contain a runnable app yet.  
+At this stage, running the project means running the backend API.
 
 ## License
 
