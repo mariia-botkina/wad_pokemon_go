@@ -1,0 +1,27 @@
+# Python dependencies for the Pokémon Go-like web app backend.
+# Install with: pip install -r requirements.txt
+
+# Web framework
+fastapi==0.115.12
+
+# ASGI server
+uvicorn[standard]==0.34.0
+
+# Database ORM and PostgreSQL driver
+sqlalchemy==2.0.40
+psycopg2-binary==2.9.10
+
+# Password hashing
+passlib[bcrypt]==1.7.4
+
+# JWT tokens
+python-jose[cryptography]==3.4.0
+
+# Pydantic email validation
+pydantic[email]==2.11.2
+
+# Environment variable loading
+python-dotenv==1.1.0
+
+# Database migrations (optional but recommended)
+alembic==1.15.2
