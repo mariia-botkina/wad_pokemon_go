@@ -1,0 +1,28 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.App-header {
+  background-color: #16213e;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #f5c518;
+  letter-spacing: 1px;
+}
+
+main {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
