@@ -1,0 +1,1 @@
+# wad_pokemon_go
