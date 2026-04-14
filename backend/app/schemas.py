@@ -1,4 +1,5 @@
 """
+<<<<<<< copilot/implement-creature-spawn-retrieval-logic
 Pydantic schemas for the Creature resource.
 
 CreatureBase   – shared fields used by all creature schemas.
@@ -34,3 +35,14 @@ class CreatureOut(CreatureBase):
     is_caught: bool
 
     model_config = {"from_attributes": True}
+=======
+schemas.py – Pydantic request/response schemas.
+
+TODO: Define UserCreate, UserRead, and UserLogin schemas.
+TODO: Define CreatureRead schema (name, type, stats, sprite URL).
+TODO: Define SpawnRead schema (creature, latitude, longitude, expires_at).
+TODO: Define CatchRequest schema (spawn_id, user latitude/longitude).
+"""
+
+# Placeholder – add Pydantic models (schemas) here as the project evolves.
+>>>>>>> main
