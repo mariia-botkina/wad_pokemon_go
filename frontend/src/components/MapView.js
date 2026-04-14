@@ -155,7 +155,7 @@ function MapView() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {/* Re-centre the map whenever position updates */}
+        {/* Re-center the map whenever position updates */}
         <RecenterMap position={position} />
 
         {/* Player location marker */}
