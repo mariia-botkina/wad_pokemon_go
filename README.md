@@ -43,7 +43,44 @@ wad_pokemon_go/
    cd wad_pokemon_go
    ```
 2. See [`docs/PLANNING.md`](docs/PLANNING.md) for the full specification and development plan.
-3. Backend and frontend setup instructions will be added as each component is scaffolded.
+
+### Running the Frontend (React)
+
+**Prerequisites:** [Node.js](https://nodejs.org/) v18+ and npm.
+
+```bash
+cd frontend
+npm install       # Install React, Leaflet, and other dependencies
+npm start         # Start the development server at http://localhost:3000
+```
+
+The app will open automatically in your browser. It requests geolocation
+permission to display your current position on the map.  Accept the prompt
+(or click **📍 Enable My Location**) to see the live map.
+
+**Other useful commands:**
+
+| Command         | Description                                  |
+|-----------------|----------------------------------------------|
+| `npm run build` | Create an optimised production build         |
+| `npm test`      | Run the test suite in watch mode             |
+
+**Dev workflow:**
+
+1. Edit files inside `frontend/src/`.
+2. The dev server hot-reloads on every save.
+3. `MapView.js` is the main map component – look for `TODO` comments for the
+   next features to implement (creature spawns, collection view, etc.).
+
+### Running the Backend (FastAPI)
+
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+The API is served at `http://localhost:8000`.  See `backend/` for details.
 
 ## License
 
