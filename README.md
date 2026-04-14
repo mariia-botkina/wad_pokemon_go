@@ -147,7 +147,7 @@ npm run lint       # or: yarn lint
 - **Node version:** Ensure you are using Node.js v18 or higher (`node --version`).
 - **Missing dependencies:** If you hit import errors, re-run `pip install -r requirements.txt` (backend) or `npm install` (frontend).
 - **Database connection:** Double-check `DATABASE_URL` in `backend/.env` and that your PostgreSQL instance is running.
-- **Database migrations:** Run `alembic upgrade head` inside the `backend/` directory to apply the latest migrations.
+- **Database migrations:** If using Alembic, run `alembic upgrade head` inside the `backend/` directory to apply the latest migrations.
 
 ---
 
@@ -165,16 +165,6 @@ Pull requests, issues, and ideas are very welcome!
 See [`docs/PLANNING.md`](docs/PLANNING.md) for the full specification and development roadmap.
 
 ---
-
-## Setup Instructions
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/mariia-botkina/wad_pokemon_go.git
-   cd wad_pokemon_go
-   ```
-2. See [`docs/PLANNING.md`](docs/PLANNING.md) for the full specification and development plan.
-3. Backend and frontend setup instructions will be added as each component is scaffolded.
 
 ## License
 
