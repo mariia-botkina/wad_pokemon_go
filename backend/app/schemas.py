@@ -1,10 +1,4 @@
 """
-Pydantic schemas for the Creature resource.
-
-CreatureBase   - shared fields used by all creature schemas.
-CreatureCreate - payload accepted when creating / spawning a creature.
-CreatureOut    - response schema returned to API callers.
-"""
 
 from datetime import datetime
 from typing import Optional
