@@ -1,10 +1,4 @@
-@app.get("/", tags=["info"])
-async def root():
-    """Welcome endpoint for root URL."""
-    return {
-        "message": "Welcome to the Pokémon Go-like API!",
-        "docs_url": "/docs"
-    }
+
 """
 main.py – FastAPI application entry point.
 
@@ -21,6 +15,15 @@ app = FastAPI(
     description="Backend API for a location-based creature-capturing game.",
     version="0.1.0",
 )
+
+# Welcome endpoint for root URL
+@app.get("/", tags=["info"])
+async def root():
+    """Welcome endpoint for root URL."""
+    return {
+        "message": "Welcome to the Pokémon Go-like API!",
+        "docs_url": "/docs"
+    }
 
 # Include API routes
 app.include_router(router)
