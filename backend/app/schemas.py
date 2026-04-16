@@ -1,5 +1,3 @@
-"""
-
 from datetime import datetime
 from typing import Optional
 
@@ -28,4 +26,3 @@ class CreatureOut(CreatureBase):
     is_caught: bool
 
     model_config = {"from_attributes": True}
->>>>>>> main

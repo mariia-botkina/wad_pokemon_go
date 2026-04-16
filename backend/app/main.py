@@ -9,21 +9,20 @@ Run locally:
 from fastapi import FastAPI
 
 from app.routes import router
+from app.utils.spawn import spawn_lifespan
 
 app = FastAPI(
     title="Pokémon Go-like Web App API",
     description="Backend API for a location-based creature-capturing game.",
     version="0.1.0",
+    lifespan=spawn_lifespan,
 )
 
 # Welcome endpoint for root URL
 @app.get("/", tags=["info"])
 async def root():
     """Welcome endpoint for root URL."""
-    return {
-        "message": "Welcome to the Pokémon Go-like API!",
-        "docs_url": "/docs"
-    }
+    return {"status": "ok"}
 
 # Include API routes
 app.include_router(router)

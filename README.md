@@ -106,11 +106,11 @@ pytest tests/ -v
 
 ### Frontend
 
-Папка frontend/ пока не содержит полноценного приложения. Основной запуск — backend.
+Frontend готов к локальному запуску из папки frontend.
 
 **Response:**
 ```json
-{ "status": "ok", "message": "Pokémon Go API is running" }
+{"status":"ok"}
 ```
 
 ---
@@ -209,67 +209,10 @@ npm start
 The app opens at `http://localhost:3000` and proxies API calls to `http://localhost:8000`.
 
 ---
-=======
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/mariia-botkina/wad_pokemon_go.git
-   cd wad_pokemon_go
-   ```
-2. See [`docs/PLANNING.md`](docs/PLANNING.md) for the full specification and development plan.
-
-### Backend (FastAPI)
-
-#### Run locally (recommended for development)
-
-```bash
-cd backend
-
-# Create and activate a virtual environment (recommended)
-python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Start the development server (auto-reload on code changes)
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-```
-
-The API will be available at <http://localhost:8000>.  
-Interactive docs (Swagger UI) are at <http://localhost:8000/docs>.  
-Health-check endpoint: `GET /health`
-
-Quick check from a terminal:
-
-```bash
-curl http://localhost:8000/health
-```
-
-Expected response:
-
-```json
-{"status":"ok"}
-```
-
-#### Run with Docker
-
-```bash
-cd backend
-
-# Build the image
-docker build -t pokemon-go-backend .
-
-# Run the container
-docker run -p 8000:8000 pokemon-go-backend
-```
-
-The API will again be available at <http://localhost:8000>.
->>>>>>> main
 
 ## Frontend Status
 
-The `frontend/` directory is currently a placeholder and does not contain a runnable app yet.  
-At this stage, running the project means running the backend API.
+Frontend запускается локально командой `npm start` в папке `frontend`.
 
 ## License
 
